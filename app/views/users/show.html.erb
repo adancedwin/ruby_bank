@@ -1,0 +1,15 @@
+<% if flash[:notice].present? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+
+<h1>Welcome, <%= current_user.name %></h1>
+
+
+<!--Counting current balance of all accounts-->
+<p>Your current balance is: <%= current_user.accounts.sum(:balance) %></p>
+
+<h2><%= link_to "View all transactions", transactions_path %></h2>
+

@@ -1,0 +1,27 @@
+<% if flash[:alert].present? %>
+  <div class="alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<h1>Transfer Money</h1>
+
+<%= form_with model: :transfer, url: "/transfer", method: :post, local: true, scope: :transfer, data: { turbo: false } do |f| %>
+  <div>
+    <%= f.label :sender_account_number, "Your Account Number" %>
+    <%= f.text_field :sender_account_number %>
+  </div>
+  <div>
+    <%= f.label :receiver_account_number, "Receiver Account Number" %>
+    <%= f.text_field :receiver_account_number %>
+  </div>
+  <div>
+    <%= f.label :amount, "Amount" %>
+    <%= f.number_field :amount, step: :any %>
+  </div>
+  <div>
+    <%= f.submit "Transfer" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", transactions_path %>

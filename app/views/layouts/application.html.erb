@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <%= link_to "My account", root_path %>
+
     <%= yield %>
+
+    <%= link_to "Logout", session_path, method: :delete %>
   </body>
 </html>
